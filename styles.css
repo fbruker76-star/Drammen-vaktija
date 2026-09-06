@@ -1,0 +1,42 @@
+
+:root {
+  color-scheme: dark;
+  --bg:#1f2328;
+  --panel:#282d33;
+  --panel2:#20252a;
+  --text:#f6f7f8;
+  --muted:#b9c0c7;
+  --accent:#5eb8ff;
+  --line:#3a4149;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+body{min-height:100dvh}
+.app{width:min(100%,1100px);margin:0 auto;padding:max(22px,env(safe-area-inset-top)) 18px max(22px,env(safe-area-inset-bottom))}
+header{text-align:center;padding:12px 0 28px}
+.eyebrow{font-size:.72rem;letter-spacing:.22em;color:var(--accent);font-weight:800}
+h1{font-size:clamp(2.5rem,10vw,5.4rem);line-height:.95;margin:8px 0 14px;letter-spacing:-.045em}
+.date{font-size:clamp(1rem,4vw,1.25rem);font-weight:650;color:var(--muted);font-style:italic}
+.prayer-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.prayer{position:relative;background:var(--panel2);border:1px solid var(--line);border-radius:18px;padding:16px 14px;min-height:126px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;overflow:hidden}
+.prayer.active{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+.prayer.active::before{content:"SLJEDEĆE";position:absolute;top:9px;right:10px;color:var(--accent);font-weight:800;font-size:.58rem;letter-spacing:.08em}
+.prayer-name{font-size:.92rem;font-weight:650;color:var(--muted);margin-bottom:4px}
+.prayer-time{font-weight:850;font-size:clamp(2.1rem,9vw,3.7rem);line-height:1;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.relative{margin-top:7px;min-height:1.1em;color:var(--muted);font-size:.78rem;font-style:italic}
+.next-card{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:14px;padding:18px;border-radius:20px;background:var(--panel);border:1px solid var(--line)}
+.next-label{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;font-weight:800}
+.next-prayer{font-size:1.15rem;font-weight:800;margin-top:3px}
+.countdown{font-size:clamp(1.5rem,7vw,2.5rem);font-weight:900;color:var(--accent);font-variant-numeric:tabular-nums}
+.notice{margin-bottom:14px;padding:12px 14px;border-radius:14px;background:#3a2e1d;border:1px solid #6b532a;color:#ffe4ac;text-align:center;font-weight:650}
+.hidden{display:none}
+footer{display:flex;justify-content:space-between;gap:10px;padding:18px 2px 4px;color:#8f98a2;font-size:.72rem}
+#clock{font-variant-numeric:tabular-nums}
+@media(min-width:720px){
+ .prayer-grid{grid-template-columns:repeat(3,1fr)}
+ .prayer{min-height:170px}
+ .app{padding-left:28px;padding-right:28px}
+}
+@media(display-mode:standalone){
+ header{padding-top:8px}
+}
